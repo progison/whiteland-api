@@ -1,0 +1,22 @@
+version: "3.9"
+services:
+  api:
+    build: .
+    ports:
+      - 80:80
+    volumes:
+      - .:/var/www/html
+      - ../whiteland-front/build:/var/www/html/front
+
+  db:
+    image: mariadb
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: whiteland
+    # volumes:
+    #   - ./db:/var/lib/mysql
+
+  adminer:
+    image: adminer
+    ports:
+      - 8080:8080

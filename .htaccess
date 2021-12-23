@@ -1,0 +1,14 @@
+<IfModule mod_rewrite.c>
+    <IfModule mod_negotiation.c>
+        Options -MultiViews -Indexes
+    </IfModule>
+
+    RewriteEngine On
+
+    RewriteCond %{REQUEST_URI} !^/api/
+    RewriteCond %{REQUEST_URI} !^/front/
+    RewriteCond %{REQUEST_URI} !^/maket/
+    RewriteCond %{REQUEST_URI} !^/maket-v2/
+    RewriteCond %{REQUEST_URI} !^/maket_profile/
+    RewriteRule ^(.*)$ /front/$1 [QSA,L]
+</IfModule>
