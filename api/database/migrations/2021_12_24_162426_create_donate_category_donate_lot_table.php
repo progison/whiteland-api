@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class DonateCategory extends Migration
+class CreateDonateCategoryDonateLotTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,10 @@ class DonateCategory extends Migration
      */
     public function up()
     {
-        Schema::create('donate_categories', function (Blueprint $table) {
+        Schema::create('donate_category_donate_lot', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->foreignId('donate_category_id')->constrained();
+            $table->foreignId('donate_lot_id')->constrained();
         });
     }
 
@@ -26,6 +27,6 @@ class DonateCategory extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('donate_categories');
+        Schema::dropIfExists('donate_category_donate_lot');
     }
 }

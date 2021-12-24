@@ -16,6 +16,11 @@ use App\Http\Controllers\MainController;
 
 Route::prefix('api')->group(
     function () {
-        Route::get('donate_category', [MainController::class, 'getAllDonateCategories']);
+        Route::get('donate_categories', [MainController::class, 'getAllDonateCategories']);
+    }
+);
+Route::prefix('api')->group(
+    function () {
+        Route::get('donate_categories/{donate_category_id}/donate_lots', [MainController::class, 'getAllDonateLots']);
     }
 );
